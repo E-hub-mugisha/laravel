@@ -5,15 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+<<<<<<< HEAD
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use App\Models\Lecture;
 use App\Models\Student;
+=======
+>>>>>>> 2a19af7a6dc709ec7c88d4aabbe01045aa553218
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    /** @use HasFactory<\Database\Factories\UserFactory> */
+    use HasFactory, Notifiable;
 
+<<<<<<< HEAD
+=======
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */
+>>>>>>> 2a19af7a6dc709ec7c88d4aabbe01045aa553218
     protected $fillable = [
         'name',
         'email',
@@ -21,11 +33,20 @@ class User extends Authenticatable
         'type',
     ];
 
+<<<<<<< HEAD
+=======
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var list<string>
+     */
+>>>>>>> 2a19af7a6dc709ec7c88d4aabbe01045aa553218
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
+<<<<<<< HEAD
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
@@ -78,5 +99,18 @@ class User extends Authenticatable
     public function lecturer()
     {
         return $this->hasOne(Lecture::class);
+=======
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+>>>>>>> 2a19af7a6dc709ec7c88d4aabbe01045aa553218
     }
 }
